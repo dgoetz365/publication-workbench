@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publication Workbench</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#editor">Skip to editor</a>
+  <header class="masthead">
+    <div><h1>Publication Workbench</h1><p>A small program, carefully published.</p></div>
+    <span class="local-label">Local demo · fictional content</span>
+  </header>
+  <div id="message" class="message" role="status" aria-live="polite">Loading the saved draft…</div>
+  <main class="workbench">
+    <aside class="contents" aria-label="Draft contents">
+      <h2>Contents</h2>
+      <nav id="contents"></nav>
+      <details class="history"><summary>Saved revisions</summary><ol id="history"></ol></details>
+    </aside>
+    <section class="editor" id="editor" aria-labelledby="editor-title">
+      <div class="section-heading"><h2 id="editor-title">Program details</h2><span id="draft-status" class="status">Loading</span></div>
+      <p id="editor-help" class="muted">Edit the draft. The published edition stays unchanged until you publish again.</p>
+      <form id="editor-form">
+        <div id="fields"></div>
+        <div class="save-area">
+          <label for="revision-note">Revision note</label>
+          <input id="revision-note" name="note" maxlength="200" placeholder="What changed in this revision?">
+          <div class="actions"><button id="save" type="submit" disabled>Save revision</button><button id="reload" class="secondary" type="button">Reload saved draft</button></div>
+        </div>
+      </form>
+    </section>
+    <aside class="publication" aria-labelledby="publication-title">
+      <h2 id="publication-title">Review & publish</h2>
+      <ol class="steps">
+        <li><h3>Validate</h3><p id="validation-summary">Checking the saved revision…</p><ul id="issues"></ul></li>
+        <li><h3>Review</h3><p id="review-status">Open the saved draft, then mark it reviewed.</p><a id="preview" class="button secondary" target="_blank" rel="noopener">Preview saved draft</a><button id="review" class="secondary" disabled>Mark reviewed</button></li>
+        <li><h3>Publish</h3><p id="publish-status">No edition has been published.</p><button id="publish" disabled>Publish edition</button><div class="edition-links"><a id="program-link" target="_blank" rel="noopener" hidden>Open published program</a><a id="export-link" hidden>Download HTML</a></div></li>
+      </ol>
+      <section class="search" aria-labelledby="search-title"><h3 id="search-title">Find in the published program</h3><form id="search-form"><label for="query">Performer, venue, or program text</label><div class="search-controls"><input id="query" type="search" maxlength="100" placeholder="Try “Tala”"><button type="submit" class="secondary">Find</button></div></form><p id="search-status" class="muted">Publish an edition to make it searchable.</p><ul id="search-results"></ul></section>
+    </aside>
+  </main>
+  <footer>Original portfolio demonstration. Single editor, local storage, no production authentication.</footer>
+</body>
+</html>
